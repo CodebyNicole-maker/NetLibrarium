@@ -1,44 +1,17 @@
 import express from 'express';
-// Run npm install mongodb and require mongodb and MongoClient class
-import { MongoClient } from 'mongodb';
-const app = express();
+import routes from './routes/index.js';
+import db from './config/connection.js';
+
+await db();
+
 const PORT = process.env.PORT || 3001;
-// Connection string to local instance of MongoDB
-const connectionStringURI = `mongodb://127.0.0.1:27017`;
-// Initialize a new instance of MongoClient
-const client = new MongoClient(connectionStringURI);
-// Create variable to hold our database name
-const dbName = 'socialNetwork';
-// Use connect method to connect to the mongo server
-await client.connect()
-.catch(err => {console.log(err)});
-const db = client.db(dbName);
-// Built in Express function that parses incoming requests to JSON
+const app = express();
+
+app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
-app.post('/people', async (req, res) => {
-  try {
-    // Use db connection to add a document
-    const results = await db.collection('userCollection').insertOne(
-      { thoughts: req.body.thoughts, reactions: req.body.reactions, users: req.body.users, friends: req.body.friends }
-    )
-    res.status(201).json(results);
-  }
-  catch (error) {
-    res.status(500).json({ error });
-  }
-});
-app.get('/people', async (_req, res) => {
-  try {
-    // Use db connection to find all documents in collection
-    const results = await db.collection('userCollection')
-      .find()
-      .toArray()
-    res.status(200).json(results);
-  }
-  catch (error) {
-    res.status(500).json({ error });
-  }
-});
+
+app.use(routes);
+
 app.listen(PORT, () => {
-  console.log(`Example app listening at http://localhost:${PORT}`);
+  console.log(`API server running on port ${PORT}!`);
 });
