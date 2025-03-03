@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { Thought, User } from '../model'; //user and thought for challenge
+import { Thought, User } from '../model/index.js'; //user and thought for challenge
 
 /**
  * GET All Thoughts /thoughts

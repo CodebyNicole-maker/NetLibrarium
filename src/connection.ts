@@ -1,6 +1,4 @@
-import mongoose, { connection } from 'mongoose';
-import on from 'express'
-import once from 'express'
+import mongoose  from 'mongoose';
 const connectionString = 'mongodb://127.0.0.1:27017/NetLibrarium';
 
 mongoose.connect(connectionString);
