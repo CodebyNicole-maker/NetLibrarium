@@ -1,11 +1,11 @@
 📌 Net Librarium (TypeScript, Node.js, MongoDB)
+
 📝 Description
 A RESTful API for a social network where users can create thoughts, react to thoughts, and manage friendships. Built with Node.js, Express, TypeScript, MongoDB, and Mongoose.
 
 ⚡ Installation & Setup
+
 Clone the repository:
-
-
 Copy
 Edit
 git clone https://github.com/yourusername/social-network-api-ts.git
