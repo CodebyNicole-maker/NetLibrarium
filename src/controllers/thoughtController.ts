@@ -121,3 +121,6 @@ export const deleteReaction = async (req: Request, res: Response) => {
         return;
     }
 };
+
+export default { getThoughts, createThought, updateThought, deleteThought, createReaction, deleteReaction };
+//     return;

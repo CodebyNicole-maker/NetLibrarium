@@ -129,3 +129,13 @@ export const deleteFriend = async (req: Request, res: Response) => {
     res.status(500).json(err);
   }
 };
+
+export default {
+  getUsers,
+  getSingleUsers,
+  createUser,
+  removeUser,
+  updateUser,
+  createFriend,
+  deleteFriend,
+};

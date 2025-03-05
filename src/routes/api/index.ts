@@ -3,7 +3,7 @@ const router = Router();
 import thoughtRoute from './thoughtRoute.js';
 import userRoute from './userRoute.js';
 
-router.use('/thoughts', thoughtRoute);
-router.use('/users', userRoute);
+router.use('/thought', thoughtRoute);
+router.use('/user', userRoute);
 
 export default router;

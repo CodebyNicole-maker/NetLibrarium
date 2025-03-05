@@ -1,6 +1,6 @@
 import express from 'express';
 import db from './config/connection.js';
-import routes from './routes/apis/index.js'; // Adjust the path as necessary
+import routes from './routes/api/index.js'; // Adjust the path as necessary
 
 await db();
 
